@@ -1,3 +1,65 @@
+
+
+<section id="contato" style="max-width: 500px; margin: 20px auto; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; border-radius: 8px;">
+  <h2>Fale Conosco via WhatsApp</h2>
+  <form id="formWhatsapp">
+    
+    <label for="nome" style="display: block; margin-top: 10px;">Nome:</label>
+    <input type="text" id="nome" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;">
+    
+    <label for="email" style="display: block; margin-top: 10px;">E-mail:</label>
+    <input type="email" id="email" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;">
+    
+    <label for="mensagem" style="display: block; margin-top: 10px;">Mensagem:</label>
+    <textarea id="mensagem" rows="4" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;"></textarea>
+    
+    <button type="submit" style="margin-top: 15px; background: #25D366; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">
+      Enviar para o WhatsApp
+    </button>
+  </form>
+</section>
+
+<script>
+  document.getElementById('formWhatsapp').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o recarregamento da página
+
+    // INSIRA SEU NÚMERO DO WHATSAPP ABAIXO (Apenas números, com código do país e DDD)
+    // Exemplo para o Brasil: 55 + DDD + Número. Não use traços ou parênteses.
+    const numeroWhatsapp = "5598996026748"; 
+
+    // Captura os valores dos campos
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    // Monta o texto formatado para o WhatsApp
+    const textoMensagem = `Olá! Meu nome é *${nome}*.\n` +
+                          `Meu e-mail é: ${email}\n\n` +
+                          `*Mensagem:*\n${mensagem}`;
+
+    // Codifica o texto para formato de URL (converte espaços e quebras de linha)
+    const textoCodificado = encodeURIComponent(textoMensagem);
+
+    // Cria o link final da API do WhatsApp
+    const urlWhatsapp = `https://whatsapp.com{numeroWhatsapp}&text=${textoCodificado}`;
+
+    // Abre o WhatsApp em uma nova aba
+    window.open(urlWhatsapp, '_blank');
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -55,53 +117,5 @@
 </html>
 
 
-
-<section id="contato" style="max-width: 500px; margin: 20px auto; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; border-radius: 8px;">
-  <h2>Fale Conosco via WhatsApp</h2>
-  <form id="formWhatsapp">
-    
-    <label for="nome" style="display: block; margin-top: 10px;">Nome:</label>
-    <input type="text" id="nome" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;">
-    
-    <label for="email" style="display: block; margin-top: 10px;">E-mail:</label>
-    <input type="email" id="email" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;">
-    
-    <label for="mensagem" style="display: block; margin-top: 10px;">Mensagem:</label>
-    <textarea id="mensagem" rows="4" required style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box;"></textarea>
-    
-    <button type="submit" style="margin-top: 15px; background: #25D366; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">
-      Enviar para o WhatsApp
-    </button>
-  </form>
-</section>
-
-<script>
-  document.getElementById('formWhatsapp').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o recarregamento da página
-
-    // INSIRA SEU NÚMERO DO WHATSAPP ABAIXO (Apenas números, com código do país e DDD)
-    // Exemplo para o Brasil: 55 + DDD + Número. Não use traços ou parênteses.
-    const numeroWhatsapp = "5598996026748"; 
-
-    // Captura os valores dos campos
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
-
-    // Monta o texto formatado para o WhatsApp
-    const textoMensagem = `Olá! Meu nome é *${nome}*.\n` +
-                          `Meu e-mail é: ${email}\n\n` +
-                          `*Mensagem:*\n${mensagem}`;
-
-    // Codifica o texto para formato de URL (converte espaços e quebras de linha)
-    const textoCodificado = encodeURIComponent(textoMensagem);
-
-    // Cria o link final da API do WhatsApp
-    const urlWhatsapp = `https://whatsapp.com{numeroWhatsapp}&text=${textoCodificado}`;
-
-    // Abre o WhatsApp em uma nova aba
-    window.open(urlWhatsapp, '_blank');
-  });
-</script>
 
    
