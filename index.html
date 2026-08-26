@@ -1,1 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mãe que Vence | Produtos digitais para uma vida mais leve</title>
+<meta name="description" content="Método Mãe que Vence: organização, rotina, finanças e autocuidado para mães solo.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#">Mãe <span>que Vence</span></a>
+<nav><a href="#metodo">O Método</a><a href="#produtos">Produtos</a><a href="#bonus">Bônus</a><a href="#faq">FAQ</a></nav>
+<button class="cart-open" id="openCart">🛒 Carrinho <b id="count">0</b></button></div></header>
 
+<main>
+<section class="hero"><div class="wrap hero-grid"><div>
+<p class="eyebrow">MÉTODO MÃE QUE VENCE</p>
+<h1>Você não precisa dar conta de tudo sozinha.</h1>
+<p class="lead">Um método prático para ajudar mães solo a organizar rotina, dinheiro, família e autocuidado — um passo de cada vez.</p>
+<a class="btn" href="#metodo">Quero conhecer o método</a>
+</div><div class="hero-book"><div class="cover"><small>MÉTODO</small><strong>MÃE<br>QUE<br>VENCE</strong><em>Organize. Cuide. Avance.</em></div></div></div></section>
+
+<section class="section" id="metodo"><div class="wrap"><p class="eyebrow">UM MÉTODO PRÁTICO</p><h2>Feito para a vida real</h2>
+<div class="cards"><article><span>01</span><h3>Organize sua rotina</h3><p>Planeje sua semana sem transformar sua vida em uma lista impossível de tarefas.</p></article>
+<article><span>02</span><h3>Cuide das finanças</h3><p>Tenha uma visão simples do dinheiro, das prioridades e das metas.</p></article>
+<article><span>03</span><h3>Cuide de você</h3><p>Inclua pequenos momentos de autocuidado sem culpa e sem perfeccionismo.</p></article></div></div></section>
+
+<section class="feature" id="produtos"><div class="wrap product-grid"><div><p class="eyebrow">PRODUTO PRINCIPAL</p><h2>Método Mãe que Vence</h2>
+<p>Um e-book digital criado para transformar sobrecarga em passos práticos. Você recebe o conteúdo principal e materiais extras para aplicar no dia a dia.</p>
+<ul><li>Rotina mais organizada</li><li>Planejamento semanal</li><li>Guia financeiro</li><li>Checklist de rotina leve</li><li>Desafios práticos</li></ul></div>
+<div class="buybox"><p>ACESSO DIGITAL</p><div class="price">R$ 29,90</div><small>Pagamento único</small><button class="btn full" onclick="add(1)">Comprar agora</button><button class="ghost" onclick="add(1)">Adicionar ao carrinho</button></div></div></section>
+
+<section class="section" id="bonus"><div class="wrap"><p class="eyebrow">VOCÊ TAMBÉM RECEBE</p><h2>Bônus para colocar em prática</h2>
+<div class="bonus"><div>📅 <b>Planner semanal</b><p>Organize compromissos, tarefas e prioridades.</p></div><div>💰 <b>Guia financeiro</b><p>Tenha uma visão simples das entradas, gastos e metas.</p></div><div>✅ <b>Checklist da rotina leve</b><p>Uma ferramenta rápida para não esquecer o essencial.</p></div></div></div></section>
+
+<section class="section faq" id="faq"><div class="wrap"><p class="eyebrow">DÚVIDAS</p><h2>Perguntas frequentes</h2>
+<details><summary>Como recebo o e-book?</summary><p>Após a confirmação do pagamento, a entrega digital será disponibilizada por e-mail ou por uma área segura de acesso.</p></details>
+<details><summary>Posso acessar pelo celular?</summary><p>Sim. O material digital poderá ser lido no celular, tablet ou computador.</p></details>
+<details><summary>O pagamento será seguro?</summary><p>O checkout final deverá ser conectado a um gateway de pagamento, como Mercado Pago, Stripe, Hotmart ou Kiwify.</p></details>
+<details><summary>Posso comprar outros produtos depois?</summary><p>Sim. A loja foi planejada para receber novos e-books, planners, cursos e combos.</p></details>
+</div></section>
+</main>
+
+<div class="overlay" id="overlay"></div><aside class="cart" id="cart"><div class="cart-head"><h2>Seu carrinho</h2><button id="closeCart">×</button></div><div id="items"></div><div class="cart-foot"><div class="total"><span>Total</span><b id="total">R$ 0,00</b></div><button class="btn full" id="checkout">Ir para checkout</button></div></aside>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="x" id="closeModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Finalizar compra</h2><div id="summary"></div>
+<form id="form"><label>Nome<input required placeholder="Seu nome"></label><label>E-mail<input required type="email" placeholder="voce@email.com"></label>
+<label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label><button class="btn full">Continuar para pagamento</button></form>
+<p class="notice">Esta versão é uma demonstração. Antes de vender, conecte o checkout a um gateway e uma entrega segura dos arquivos.</p></div></div>
+<footer><div class="wrap"><b>Mãe que Vence</b><p>Conhecimento, organização e ferramentas para uma vida mais leve.</p><small>© 2026 Mãe que Vence. Todos os direitos reservados.</small></div></footer>
+<script src="script.js"></script>
+</body></html>

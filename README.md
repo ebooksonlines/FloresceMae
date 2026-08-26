@@ -1,16 +1,23 @@
-## Hi there 👋
+# Mãe que Vence — Loja de Produtos Digitais
 
-<!--
-**ebooksonlines/ebooksonlines** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Projeto inicial completo e responsivo para a futura marca Mãe que Vence.
 
-Here are some ideas to get you started:
+Inclui:
+- página de vendas;
+- apresentação do Método Mãe que Vence;
+- seção de bônus;
+- FAQ;
+- carrinho;
+- quantidade e total;
+- checkout visual;
+- armazenamento do carrinho no navegador;
+- estrutura preparada para novos produtos.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Abrir
+Abra `index.html` no navegador.
+
+## Próxima etapa para colocar à venda
+Conectar o checkout a Mercado Pago, Stripe, Hotmart ou Kiwify e implementar entrega segura dos arquivos após confirmação do pagamento.
+
+## Produtos
+Os produtos ficam no objeto `products` do `script.js`, facilitando a expansão da loja.
