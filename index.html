@@ -70,10 +70,68 @@
 
 <label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label>
   <a href="https://pay.kiwify.com.br/vhy5gul" target="_blank" style="background-color: #22C55E; color: white; padding: 15px 30px; font-family: sans-serif; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 8px; display: inline-block; text-align: center; border: none; cursor: pointer;">
-  <style>
-<button style="background-color: #8A2BE2; color: #FFFFFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
- <button> Confirmar Pagamento </button>
-</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão de Pagamento</title>
+    <style>
+        /* Estilo do botão */
+        .btn-pagamento {
+            background-color: #6A1B9A; /* Roxo principal */
+            color: #FFFFFF; /* Texto branco */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(106, 27, 154, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Efeito ao passar o mouse */
+        .btn-pagamento:hover {
+            background-color: #4A148C; /* Roxo mais escuro */
+            box-shadow: 0 6px 12px rgba(106, 27, 154, 0.3);
+        }
+
+        /* Efeito ao clicar */
+        .btn-pagamento:active {
+            transform: scale(0.98); /* Leve clique visual */
+            box-shadow: 0 2px 4px rgba(106, 27, 154, 0.2);
+        }
+
+        /* Opcional: Estilo para estado de carregamento */
+        .btn-pagamento:disabled {
+            background-color: #BDBDBD;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão HTML -->
+    <button class="btn-pagamento" type="button" onclick="confirmarPagamento()">
+        Confirmar Pagamento
+    </button>
+
+    <script>
+        // Função exemplo para o clique
+        function confirmarPagamento() {
+            alert('Processando pagamento...');
+        }
+    </script>
+
+</body>
+</html>
+
 
 
 
