@@ -69,65 +69,57 @@
 
 
 <label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label>
-  <a href="https://pay.kiwify.com.br/vhy5gul" target="_blank" style="background-color: #22C55E; color: white; padding: 15px 30px; font-family: sans-serif; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 8px; display: inline-block; text-align: center; border: none; cursor: pointer;">
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botão de Pagamento</title>
-    <style>
-        /* Estilo do botão */
-        .btn-pagamento {
-            background-color: #6A1B9A; /* Roxo principal */
-            color: #FFFFFF; /* Texto branco */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 6px rgba(106, 27, 154, 0.2);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
+  <a href="https://pay.kiwify.com.br/vhy5gul" target="_blank" class="btn-finalizar-pedido">
+    FINALIZAR PEDIDO
+</a>
 
-        /* Efeito ao passar o mouse */
-        .btn-pagamento:hover {
-            background-color: #4A148C; /* Roxo mais escuro */
-            box-shadow: 0 6px 12px rgba(106, 27, 154, 0.3);
-        }
+<style>
+    .btn-finalizar-pedido {
+        /* Cores e Texto */
+        background-color: #6f42c1; /* Roxo vibrante */
+        color: #ffffff;            /* Texto branco */
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;           /* Texto grande */
+        font-weight: bold;         /* Texto em negrito */
+        letter-spacing: 1px;       /* Espaçamento entre as letras */
+        text-decoration: none;     /* Remove o sublinhado de link */
+        
+        /* Formato Retangular Grande */
+        display: block;            /* Ocupa a largura total disponível */
+        max-width: 450px;          /* Limita o tamanho máximo para não esticar demais */
+        margin: 20px auto;         /* Centraliza o botão na página */
+        padding: 20px 40px;        /* Espaçamento interno grande */
+        text-align: center;        /* Centraliza o texto */
+        border-radius: 4px;        /* Cantos levemente arredondados para formato retangular puro */
+        box-sizing: border-box;
+        
+        /* Interatividade e Transição */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil de clique */
+    }
 
-        /* Efeito ao clicar */
-        .btn-pagamento:active {
-            transform: scale(0.98); /* Leve clique visual */
-            box-shadow: 0 2px 4px rgba(106, 27, 154, 0.2);
-        }
+    /* Efeito ao passar o mouse */
+    .btn-finalizar-pedido:hover {
+        background-color: #ffffff; /* Fundo muda para branco */
+        color: #6f42c1;            /* Texto muda para roxo */
+        border: 2px solid #6f42c1; /* Adiciona borda roxa */
+        box-shadow: 0 6px 15px rgba(111, 66, 193, 0.4); /* Sombra roxa brilhante */
+        transform: translateY(-2px); /* Efeito de flutuar levemente */
+    }
 
-        /* Opcional: Estilo para estado de carregamento */
-        .btn-pagamento:disabled {
-            background-color: #BDBDBD;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-    </style>
-</head>
-<body>
+    /* Efeito ao clicar */
+    .btn-finalizar-pedido:active {
+        transform: translateY(1px); /* Efeito de botão pressionado */
+    }
+</style>
 
-    <!-- Botão HTML -->
-    <button class="btn-pagamento" type="button" onclick="confirmarPagamento()">
-        Confirmar Pagamento
-    </button>
 
-    <script>
-        // Função exemplo para o clique
-        function confirmarPagamento() {
-            alert('Processando pagamento...');
-        }
-    </script>
+
+
+    
+
+
 
 </body>
 </html>
