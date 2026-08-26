@@ -103,6 +103,26 @@
   });
 </script>
 
+<div class="checkout-field-group">
+  <label for="checkout-cpf" style="display: block; font-weight: bold; margin-bottom: 5px;">
+    CPF para a Nota Fiscal <span style="color: red;">*</span>
+  </label>
+  <input 
+    type="text" 
+    id="checkout-cpf" 
+    name="checkout_cpf" 
+    placeholder="000.000.000-00"
+    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+    title="Formato exigido: 000.000.000-00"
+    maxlength="14"
+    inputmode="numeric"
+    autocomplete="cpf"
+    aria-required="true"
+    required
+    style="width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+</div>
+
+
 
 
 
