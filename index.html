@@ -37,88 +37,15 @@
 <details><summary>Posso acessar pelo celular?</summary><p>Sim. O material digital poderá ser lido no celular, tablet ou computador.</p></details>
 <details><summary>O pagamento será seguro?</summary><p>O checkout final deverá ser conectado a um gateway de pagamento, como Mercado Pago, Stripe, Hotmart ou Kiwify.</p></details>
 <details><summary>Posso comprar outros produtos depois?</summary><p>Sim. A loja foi planejada para receber novos e-books, planners, cursos e combos.</p></details>
-</div>.</section>
+</div></section>
 </main>
 
 <div class="overlay" id="overlay"></div><aside class="cart" id="cart"><div class="cart-head"><h2>Seu carrinho</h2><button id="closeCart">×</button></div><div id="items"></div><div class="cart-foot"><div class="total"><span>Total</span><b id="total">R$ 0,00</b></div><button class="btn full" id="checkout">Ir para checkout</button></div></aside>
 
 <div class="modal" id="modal"><div class="modal-box"><button class="x" id="closeModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Finalizar compra</h2><div id="summary"></div>
 <form id="form"><label>Nome<input required placeholder="Seu nome"></label><label>E-mail<input required type="email" placeholder="voce@email.com"></label>
-<div class="checkout-field-group">
-  <label for="checkout-cpf" style="display: block; font-weight: bold; margin-bottom: 5px;">
-    CPF  <span style="color: red;">*</span>
-  </label>
-  <input 
-    type="text" 
-    id="checkout-cpf" 
-    name="checkout_cpf" 
-    placeholder="000.000.000-00"
-    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-    title="Formato exigido: 000.000.000-00"
-    maxlength="14"
-    inputmode="numeric"
-    autocomplete="cpf"
-    aria-required="true"
-    required
-    style="width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
-</div>
-
-
-<label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label>
-  <a href=https://pay.kiwify.com.br/FQ6sLjV target="_blank" class="btn-adquirir-ebook">
-   <button >ADQUIRIR EBOOK</button>
-</a>
-
-<style>
-    .btn-adquirir-ebook {
-        /* Cores e Texto */
-        background-color: #6f42c1; /* Roxo vibrante */
-        color: #ffffff;            /* Texto branco */
-        font-family: 'Arial', sans-serif;
-        font-size: 16px;           /* Texto grande */
-        font-weight: bold;         /* Texto em negrito */
-        letter-spacing: 2px;       /* Espaçamento entre as letras */
-        text-decoration: none;     /* Remove o sublinhado de link */
-        
-        /* Formato Retangular Grande */
-        display: block;            /* Ocupa a largura total disponível */
-        max-width: 425px;          /* Limita o tamanho máximo para não esticar demais */
-        margin: 25px auto;         /* Centraliza o botão na página */
-        padding: 20px 45px;        /* Espaçamento interno grande */
-        text-align: center;        /* Centraliza o texto */
-        border-radius: 6px;        /* Cantos levemente arredondados para formato retangular puro */
-        box-sizing: border-box;
-        
-        /* Interatividade e Transição */
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil de clique */
-    }
-
-    /* Efeito ao passar o mouse */
-    .btn-finalizar-pedido:hover {
-        background-color: #ffffff; /* Fundo muda para branco */
-        color: #6f42c1;            /* Texto muda para roxo */
-        border: 2px solid #6f42c1; /* Adiciona borda roxa */
-        box-shadow: 0 6px 15px rgba(111, 66, 193, 0.4); /* Sombra roxa brilhante */
-        transform: translateY(-2px); /* Efeito de flutuar levemente */
-    }
-
-    /* Efeito ao clicar */
-    .btn-finalizar-pedido:active {
-        transform: translateY(1px); /* Efeito de botão pressionado */
-    }
-</style>
-  
-  
-</a>
-  
-</a>
-
-</a>
-</p></div></div>
+<label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label><button class="btn full">Continuar para pagamento</button></form>
+<p class="notice">Esta versão é uma demonstração. Antes de vender, conecte o checkout a um gateway e uma entrega segura dos arquivos.</p></div></div>
 <footer><div class="wrap"><b>Mãe que Vence</b><p>Conhecimento, organização e ferramentas para uma vida mais leve.</p><small>© 2026 Mãe que Vence. Todos os direitos reservados.</small></div></footer>
 <script src="script.js"></script>
-
-</body>
-</html>
+</body></html>
