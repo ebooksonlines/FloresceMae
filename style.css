@@ -1,4 +1,84 @@
 /* ==========================================================================
+   1. CENTRALIZAÇÃO GLOBAL DO SITE (Desktop)
+   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza todo o conteúdo horizontalmente */
+    min-height: 100vh;
+    background-color: #FFFFFF; /* Mantém o padrão branco solicitado */
+}
+
+/* Container principal que envelopa o conteúdo do seu site */
+.site-container, main, #wrapper {
+    width: 100%;
+    max-width: 1200px; /* Impede o site de esticar demais em telas muito grandes */
+    margin: 0 auto;    /* Garante a centralização perfeita nas laterais */
+    padding: 0 20px;   /* Evita que o texto encoste nas bordas do celular */
+    box-sizing: border-box;
+}
+
+/* Remove larguras fixadas em pixels que possam estar quebrando o layout */
+img, video, iframe, table {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* ==========================================================================
+   2. RESPONSIVIDADE PARA CELULARES (Telas até 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* Força blocos lado a lado ficarem empilhados um embaixo do outro no celular */
+    .row, .flex-container, .grid-container, .product-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    /* Ajusta elementos internos (como colunas ou cards de e-books) para ocupar a largura total */
+    .col, .columns, .card, .product-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 20px !important; /* Espaçamento vertical entre os itens empilhados */
+    }
+
+    /* Redimensiona textos grandes para caber em telas menores sem quebrar linha errado */
+    h1 { font-size: 1.8rem !important; text-align: center; }
+    h2 { font-size: 1.5rem !important; text-align: center; }
+    h3 { font-size: 1.3rem !important; text-align: center; }
+    p, span, li { font-size: 1rem !important; }
+
+    /* Ajusta botões e inputs para ficarem fáceis de tocar no celular */
+    .btn, button, input, select {
+        width: 100% !important;
+        display: block !important;
+        box-sizing: border-box !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
    PALETA DE CORES GLOBAL: ROXO, BRANCO E DETALHES ROSAS
    ========================================================================== */
 
