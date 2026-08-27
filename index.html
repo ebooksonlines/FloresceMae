@@ -48,4 +48,196 @@
 <p class="notice">Esta versão é uma demonstração. Antes de vender, conecte o checkout a um gateway e uma entrega segura dos arquivos.</p></div></div>
 <footer><div class="wrap"><b>Mãe que Vence</b><p>Conhecimento, organização e ferramentas para uma vida mais leve.</p><small>© 2026 Mãe que Vence. Todos os direitos reservados.</small></div></footer>
 <script src="script.js"></script>
+
+<!-- Container Principal -->
+<div class="wrapper-btn-kiwify">
+
+  <!-- Cronômetro de Escassez -->
+  <div class="countdown-kiwify">
+    Esta oferta expira em: <span id="timer-kiwify">15:00</span>
+  </div>
+  
+  <!-- Botão de Pagamento com Efeito Pulsar -->
+  <a href="https://pay.kiwify.com.br/FQ6sLjV" class="btn-kiwify pulse-effect">
+    <svg xmlns="http://w3.org" viewBox="0 0 24 24" fill="currentColor">
+      <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7 0v3h7Z" clip-rule="evenodd" />
+    </svg>
+    Quero Acesso Imediato
+  </a>
+
+  <!-- Texto de Segurança -->
+  <p class="safe-text-kiwify">
+    🔒 Ambiente 100% Seguro. Seus dados estão protegidos.
+  </p>
+
+  <!-- Selos das Formas de Pagamento (Roxo e Branco) -->
+  <div class="payment-methods-kiwify">
+    <span class="badge-kiwify">💳 Cartão de Crédito</span>
+    <span class="badge-kiwify">⚡ PIX Imediato</span>
+    <span class="badge-kiwify">📄 Boleto</span>
+  </div>
+  
+</div>
+
+<!-- Estilos CSS -->
+<style>
+  /* Container Centralizado */
+  .wrapper-btn-kiwify {
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Limita a largura máxima no desktop para ficar elegante */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  /* Estilo do Cronômetro */
+  .countdown-kiwify {
+    font-size: 14px;
+    color: #7c3aed; /* Texto roxo */
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .countdown-kiwify span {
+    background-color: #7c3aed;
+    color: #ffffff; /* Fundo roxo e número branco */
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Botão Principal */
+  .btn-kiwify {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%; /* Ocupa o bloco do container */
+    padding: 16px 20px;
+    background-color: #7c3aed; /* Roxo */
+    color: #ffffff;            /* Branco */
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: background 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  }
+  .btn-kiwify:hover {
+    background-color: #6d28d9;
+  }
+  .btn-kiwify:active {
+    transform: scale(0.98);
+  }
+  .btn-kiwify svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Texto de Segurança */
+  .safe-text-kiwify {
+    margin-top: 12px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #6d28d9; /* Roxo escuro para o texto */
+    font-weight: 500;
+  }
+
+  /* Container de Formas de Pagamento */
+  .payment-methods-kiwify {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Selos de Pagamento Roxo/Branco */
+  .badge-kiwify {
+    font-size: 11px;
+    font-weight: bold;
+    color: #7c3aed; /* Texto roxo */
+    background-color: #f5f3ff; /* Fundo roxo bem claro/quase branco */
+    border: 1px solid #ddd6fe; /* Borda roxa suave */
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Efeito Pulsar */
+  .pulse-effect {
+    animation: pulseKiwify 2s infinite;
+  }
+  @keyframes pulseKiwify {
+    0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(124, 58, 237, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+  }
+
+  /* Ajustes para Celular */
+  @media (max-width: 480px) {
+    .wrapper-btn-kiwify {
+      width: 100%;
+      padding: 10px;
+    }
+    .btn-kiwify {
+      padding: 18px 15px;
+      font-size: 16px;
+    }
+    .badge-kiwify {
+      font-size: 10px;
+      padding: 5px 10px;
+    }
+  }
+</style>
+
+<!-- Script para rodar o Cronômetro de 15 minutos -->
+<script>
+  function startCountdown(duration, display) {
+    var timer = duration, minutes, seconds;
+    var interval = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = duration; // Reinicia o cronômetro ao zerar para não quebrar a página
+      }
+    }, 1000);
+  }
+
+  window.onload = function () {
+    var fifteenMinutes = 60 * 15,
+        display = document.querySelector('#timer-kiwify');
+    startCountdown(fifteenMinutes, display);
+  };
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body></html>
+
+
+
+
+
+
+
+
