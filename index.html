@@ -46,6 +46,139 @@
 <form id="form"><label>Nome<input required placeholder="Seu nome"></label><label>E-mail<input required type="email" placeholder="voce@email.com"></label>
 <label>Pagamento<select><option>PIX</option><option>Cartão de crédito</option></select></label><button class="btn full">Continuar para pagamento</button></form>
 <p class="notice">Esta versão é uma demonstração. Antes de vender, conecte o checkout a um gateway e uma entrega segura dos arquivos.</p></div></div>
-<footer><div class="wrap"><b>Mãe que Vence</b><p>Conhecimento, organização e ferramentas para uma vida mais leve.</p><small>© 2026 Mãe que Vence. Todos os direitos reservados.</small></div></footer>
+
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas - Ebook</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+            color: #1f2937;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            width: 90%;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .badge {
+            background-color: #fee2e2;
+            color: #dc2626;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: #111827;
+        }
+        .timer-box {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #374151;
+            margin: 20px 0;
+        }
+        .timer-digits {
+            color: #dc2626;
+        }
+        .cta-button {
+            display: block;
+            background-color: #10b981;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .cta-button:hover {
+            background-color: #059669;
+            transform: scale(1.02);
+        }
+        .footer-info {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <span class="badge">OFERTA EXCLUSIVA</span>
+        <h1>Garanta seu E-book Agora</h1>
+        
+        <!-- Cronômetro de Escassez -->
+        <div class="timer-box">
+            A oferta expira em: <span id="timer" class="timer-digits">15:00</span>
+        </div>
+
+        <!-- Botão de Compra Direta -->
+        <!-- IMPORTANTE: Substitua o link abaixo pelo link do seu checkout Kiwify -->
+        <a href=https://pay.kiwify.com.br/FQ6sLjV class="cta-button" id="kiwify-link">
+            QUERO O MEU E-BOOK AGORA
+        </a>
+
+        <p class="footer-info">🔒 Pagamento 100% seguro via Kiwify</p>
+    </div>
+
+    <script>
+        // Configuração do Cronômetro (15 minutos)
+        let duration = 15 * 60; 
+        const timerDisplay = document.getElementById('timer');
+
+        function startTimer() {
+            setInterval(function () {
+                let minutes = Math.floor(duration / 60);
+                let seconds = duration % 60;
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                timerDisplay.textContent = minutes + ":" + seconds;
+
+                if (--duration < 0) {
+                    duration = 15 * 60; // Reinicia o timer se zerar (falsa escassez comum)
+                }
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+
+        // DICA EXTRA: Parâmetros na URL da Kiwify
+        // Se você quiser testar passar o email direto do seu site para o checkout da Kiwify,
+        // basta adicionar "?email=cliente@email.com" no final do link do seu botão.
+    </script>
+
+</body>
+</html>
+
+  
+  
+  
+  <footer><div class="wrap"><b>Mãe que Vence</b><p>Conhecimento, organização e ferramentas para uma vida mais leve.</p><small>© 2026 Mãe que Vence. Todos os direitos reservados.</small></div></footer>
 <script src="script.js"></script>
 </body></html>
