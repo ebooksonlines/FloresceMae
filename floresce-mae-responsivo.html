@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Floresce Mãe — Método Mãe que Vence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#fffdfc;
+    --blush:#fbe6ef;
+    --pink:#e88fb0;
+    --pink-deep:#c85f8c;
+    --lilac:#b48fd6;
+    --lilac-deep:#8a5cbf;
+    --ink:#3c2a3f;
+    --ink-soft:#6e5a72;
+    --gold:#e2b866;
+    --shadow: 0 20px 40px -20px rgba(138,92,191,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+  }
+  header.hero, section, footer{width:100%;}
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--ink);
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Nunito Sans',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    font-weight:800;
+    color:var(--pink-deep);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;width:100%;margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+
+  /* ---------- sticky cart bar ---------- */
+  #cartbar{
+    position:sticky; top:0; z-index:50;
+    background:linear-gradient(90deg,var(--lilac-deep),var(--pink-deep));
+    color:#fff;
+    padding:10px 16px;
+    text-align:center;
+    font-size:0.9rem;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  #cartbar .timer{
+    font-variant-numeric: tabular-nums;
+    background:rgba(255,255,255,0.18);
+    padding:3px 10px;
+    border-radius:20px;
+    margin-left:8px;
+  }
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 500px at 85% -10%, rgba(232,143,176,0.35), transparent 60%),
+      radial-gradient(ellipse 600px 500px at -10% 20%, rgba(180,143,214,0.30), transparent 60%),
+      var(--white);
+    padding:72px 0 60px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .badge-crown{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;
+    border:1px solid var(--blush);
+    padding:7px 14px 7px 10px;
+    border-radius:999px;
+    font-size:0.78rem;
+    font-weight:700;
+    color:var(--lilac-deep);
+    box-shadow: var(--shadow);
+    margin-bottom:22px;
+  }
+  .badge-crown svg{flex:none;}
+  h1.display{
+    font-size:clamp(2.3rem, 4.4vw, 3.6rem);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+  }
+  h1.display em{
+    font-style:italic;
+    background:linear-gradient(90deg,var(--pink-deep),var(--lilac-deep));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    margin-top:20px;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-pillars{
+    display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;
+  }
+  .pillar-chip{
+    display:flex;align-items:center;gap:8px;
+    background:#fff;
+    border:1px solid var(--blush);
+    padding:9px 14px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--ink);
+    box-shadow: 0 8px 18px -12px rgba(138,92,191,0.4);
+  }
+  .pillar-chip .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .hero-cta{margin-top:34px;}
+  .price-tag{
+    display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
+  }
+  .price-tag .old{color:var(--ink-soft);text-decoration:line-through;font-size:1rem;}
+  .price-tag .new{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--pink-deep);}
+  .price-tag .cycle{font-size:0.85rem;color:var(--ink-soft);}
+  .btn-buy{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(90deg,var(--pink-deep),var(--lilac-deep));
+    color:#fff;
+    font-weight:800;
+    font-size:1.02rem;
+    padding:18px 30px;
+    border-radius:16px;
+    box-shadow:0 18px 30px -12px rgba(200,95,140,0.55);
+    border:none;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+    width:100%;
+    max-width:420px;
+  }
+  .btn-buy:hover{transform:translateY(-2px);box-shadow:0 22px 36px -12px rgba(200,95,140,0.65);}
+  .hero-note{
+    margin-top:12px;font-size:0.82rem;color:var(--ink-soft);
+    display:flex;align-items:center;gap:6px;
+  }
+
+  /* hero visual: mug/journal card */
+  .hero-visual{
+    position:relative;
+    background:linear-gradient(160deg,#fff, var(--blush));
+    border-radius:28px;
+    padding:34px;
+    box-shadow: var(--shadow);
+    border:1px solid #fff;
+  }
+  .visual-card{
+    background:#fff;
+    border-radius:20px;
+    padding:28px 24px;
+    text-align:center;
+  }
+  .visual-card .crown{margin:0 auto 10px;}
+  .visual-card .title-sm{
+    font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;
+  }
+  .visual-card .sub-sm{font-size:0.85rem;color:var(--ink-soft);margin-top:6px;}
+  .visual-mantra{
+    margin-top:22px;
+    background:linear-gradient(120deg,var(--lilac),var(--pink));
+    color:#fff;
+    border-radius:16px;
+    padding:16px 18px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1rem;
+  }
+  .visual-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;
+  }
+  .visual-stats div{
+    background:var(--blush);
+    border-radius:12px;
+    padding:12px 6px;
+    text-align:center;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--lilac-deep);
+  }
+  .visual-stats div span{
+    display:block;font-family:'Fraunces',serif;font-size:1.15rem;color:var(--pink-deep);font-weight:600;
+  }
+
+  /* ---------- for you section ---------- */
+  .foryou{background:var(--white);}
+  .foryou h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:16ch;}
+  .quote-strip{
+    margin-top:18px;
+    font-family:'Fraunces',serif;font-style:italic;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    border-left:3px solid var(--pink);
+    padding-left:16px;
+  }
+  .you-grid{
+    margin-top:44px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .you-card{
+    background:linear-gradient(160deg,#fff,var(--blush));
+    border-radius:20px;
+    padding:26px 22px;
+    border:1px solid #fff;
+  }
+  .you-card .num{
+    font-family:'Fraunces',serif;color:var(--pink-deep);font-size:0.85rem;font-weight:600;
+  }
+  .you-card p{margin-top:10px;color:var(--ink-soft);font-size:0.95rem;}
+
+  /* ---------- pillars detail ---------- */
+  .pillars{
+    background:linear-gradient(180deg,var(--blush),#fff);
+  }
+  .pillars-head{max-width:56ch;}
+  .pillars-head h2{font-size:clamp(1.8rem,3.2vw,2.4rem);}
+  .pillars-head p{margin-top:14px;color:var(--ink-soft);font-size:1.02rem;}
+  .pillar-list{margin-top:46px;display:flex;flex-direction:column;gap:0;}
+  .pillar-row{
+    display:grid;grid-template-columns: 90px 1fr;
+    gap:22px;
+    padding:30px 0;
+    border-top:1px solid rgba(180,143,214,0.25);
+  }
+  .pillar-row:last-child{border-bottom:1px solid rgba(180,143,214,0.25);}
+  .pillar-icon{
+    width:64px;height:64px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
+  }
+  .pillar-row h3{font-size:1.25rem;}
+  .pillar-row p{color:var(--ink-soft);margin-top:8px;font-size:0.98rem;max-width:60ch;}
+  .pillar-row ul{margin:12px 0 0;padding-left:18px;color:var(--ink-soft);font-size:0.92rem;}
+  .pillar-row li{margin-bottom:4px;}
+
+  /* ---------- bonus ---------- */
+  .bonus{background:#fff;}
+  .bonus h2{font-size:clamp(1.7rem,3vw,2.3rem);text-align:center;}
+  .bonus-sub{text-align:center;color:var(--ink-soft);margin-top:10px;max-width:52ch;margin-left:auto;margin-right:auto;}
+  .bonus-grid{
+    margin-top:42px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .bonus-card{
+    background:linear-gradient(160deg,#fff,var(--blush));
+    border:1px solid var(--blush);
+    border-radius:18px;
+    padding:22px 18px;
+    text-align:center;
+  }
+  .bonus-card .tag{
+    font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--lilac-deep);
+  }
+  .bonus-card h4{font-family:'Fraunces',serif;font-size:1.05rem;margin-top:8px;color:var(--ink);}
+  .bonus-card p{font-size:0.85rem;color:var(--ink-soft);margin-top:6px;}
+
+  /* ---------- offer / checkout section ---------- */
+  .offer{
+    background:linear-gradient(135deg,var(--lilac-deep),var(--pink-deep));
+    color:#fff;
+    text-align:center;
+    border-radius:32px;
+    margin:0 24px;
+    padding:64px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  .offer::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 15% 15%, rgba(255,255,255,0.18), transparent 45%),
+               radial-gradient(circle at 85% 85%, rgba(255,255,255,0.14), transparent 45%);
+  }
+  .offer > *{position:relative;}
+  .offer .eyebrow{color:#ffe1ec;}
+  .offer h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:#fff;margin-top:10px;}
+  .offer p.sub{margin-top:14px;color:#f6e4ee;max-width:48ch;margin-left:auto;margin-right:auto;}
+
+  .timer-box{
+    margin:32px auto 8px;
+    display:inline-flex;align-items:center;gap:14px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.35);
+    padding:14px 22px;
+    border-radius:18px;
+    backdrop-filter: blur(4px);
+  }
+  .timer-box .lbl{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#ffe1ec;}
+  .timer-box .clock{
+    font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .offer-card{
+    margin:34px auto 0;
+    max-width:420px;
+    background:#fff;
+    color:var(--ink);
+    border-radius:22px;
+    padding:30px 26px;
+    box-shadow:0 30px 50px -20px rgba(60,20,45,0.5);
+  }
+  .offer-card .name{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;}
+  .offer-card .desc{color:var(--ink-soft);font-size:0.88rem;margin-top:6px;}
+  .offer-card .pricing{margin:20px 0 6px;display:flex;align-items:baseline;justify-content:center;gap:10px;}
+  .offer-card .pricing .old{color:var(--ink-soft);text-decoration:line-through;font-size:0.95rem;}
+  .offer-card .pricing .new{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:600;color:var(--pink-deep);}
+  .offer-card .pricing .cur{font-size:0.95rem;color:var(--pink-deep);font-weight:700;}
+  .offer-card .installment{text-align:center;font-size:0.82rem;color:var(--ink-soft);margin-bottom:20px;}
+  .offer-includes{
+    text-align:left;
+    margin:0 0 22px;
+    padding:0;list-style:none;
+    font-size:0.88rem;
+    color:var(--ink);
+  }
+  .offer-includes li{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start;}
+  .offer-includes li svg{flex:none;margin-top:2px;}
+  .offer-card .btn-buy{max-width:100%;}
+  .secure-row{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:14px;font-size:0.78rem;color:var(--ink-soft);
+  }
+
+  /* ---------- faq ---------- */
+  .faq{background:var(--white);}
+  .faq h2{font-size:clamp(1.7rem,3vw,2.3rem);text-align:center;margin-bottom:40px;}
+  .faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  details{
+    background:linear-gradient(160deg,#fff,var(--blush));
+    border:1px solid var(--blush);
+    border-radius:16px;
+    padding:18px 20px;
+  }
+  summary{
+    cursor:pointer;font-weight:700;font-size:0.98rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-size:1.3rem;color:var(--pink-deep);font-weight:400;flex:none;
+  }
+  details[open] summary::after{content:"–";}
+  details p{margin-top:12px;color:var(--ink-soft);font-size:0.92rem;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);
+    color:#f3e9ee;
+    text-align:center;
+    padding:44px 24px 30px;
+    font-size:0.82rem;
+  }
+  footer .fname{font-family:'Fraunces',serif;font-size:1.2rem;color:#fff;margin-bottom:10px;}
+  footer .flinks{margin-top:14px;color:#bfa9c2;}
+
+  /* ---------- mobile ---------- */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .you-grid{grid-template-columns:1fr;}
+    .pillar-row{grid-template-columns:56px 1fr;}
+    .pillar-icon{width:48px;height:48px;border-radius:14px;}
+    .bonus-grid{grid-template-columns:repeat(2,1fr);}
+    section{padding:60px 0;}
+    .offer{margin:0 12px;padding:48px 20px;}
+    .hero-visual{order:-1;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 18px;}
+    section{padding:48px 0;}
+    .bonus-grid{grid-template-columns:1fr;}
+    #cartbar{font-size:0.72rem;padding:9px 12px;}
+    #cartbar .timer{margin-left:4px;padding:2px 8px;}
+    h1.display{font-size:1.9rem;}
+    .hero{padding:48px 0 40px;}
+    .hero-visual{padding:22px;}
+    .visual-card{padding:22px 16px;}
+    .visual-stats{gap:8px;}
+    .btn-buy{font-size:0.92rem;padding:16px 22px;}
+    .price-tag .new{font-size:1.7rem;}
+    .pillar-row{grid-template-columns:44px 1fr;gap:14px;padding:22px 0;}
+    .pillar-icon{width:40px;height:40px;border-radius:12px;}
+    .pillar-icon svg{width:20px;height:20px;}
+    .offer{margin:0 8px;padding:40px 16px;border-radius:22px;}
+    .offer-card{padding:24px 18px;}
+    .timer-box{padding:10px 16px;gap:10px;flex-wrap:wrap;justify-content:center;}
+    .timer-box .clock{font-size:1.4rem;}
+    .you-grid{gap:14px;}
+    .bonus-grid{gap:14px;}
+    details{padding:14px 16px;}
+    summary{font-size:0.9rem;}
+  }
+
+  @media (max-width:360px){
+    h1.display{font-size:1.65rem;}
+    .offer-card .pricing .new{font-size:2rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+
+  /* RESPONSIVIDADE AVANÇADA — celulares, alta densidade e safe areas */
+  :root{
+    --page-pad:clamp(16px, 5vw, 24px);
+    --section-pad:clamp(50px, 8vw, 88px);
+  }
+
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body{
+    overflow-wrap:anywhere;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1080px;
+    padding-left:var(--page-pad);
+    padding-right:var(--page-pad);
+  }
+
+  section{padding-top:var(--section-pad);padding-bottom:var(--section-pad);}
+
+  #cartbar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px 8px;
+    padding-left:max(12px, env(safe-area-inset-left));
+    padding-right:max(12px, env(safe-area-inset-right));
+    line-height:1.35;
+  }
+  #cartbar .timer{margin-left:0;}
+
+  header.hero{
+    padding-top:clamp(48px, 8vw, 72px);
+    padding-bottom:clamp(44px, 7vw, 60px);
+  }
+
+  .hero-grid{
+    grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
+    gap:clamp(30px, 5vw, 56px);
+  }
+
+  .hero-grid > *,
+  .hero-visual,
+  .visual-card,
+  .you-card,
+  .bonus-card,
+  .offer-card,
+  .pillar-row > div:last-child,
+  .faq-list,
+  details{min-width:0;}
+
+  .badge-crown{
+    max-width:100%;
+    white-space:normal;
+    text-align:left;
+  }
+
+  h1.display,
+  .pillars-head h2,
+  .offer h2,
+  .bonus h2,
+  .faq h2{overflow-wrap:anywhere;}
+
+  h1.display{font-size:clamp(2.05rem, 6.4vw, 3.6rem);}
+  .hero p.lede{font-size:clamp(.98rem, 1.8vw, 1.08rem);}
+
+  .hero-pillars{gap:10px;}
+  .pillar-chip{min-height:44px;}
+  .price-tag{flex-wrap:wrap;gap:6px 10px;}
+  .btn-buy{min-height:52px;}
+  .hero-note{align-items:flex-start;}
+
+  .hero-visual{
+    padding:clamp(20px, 3vw, 34px);
+    border-radius:clamp(20px, 3vw, 28px);
+  }
+  .visual-card{padding:clamp(20px, 2.6vw, 28px) clamp(16px, 2.2vw, 24px);}
+  .visual-card .title-sm{font-size:clamp(1.25rem, 2.3vw, 1.5rem);overflow-wrap:anywhere;}
+  .visual-mantra{overflow-wrap:anywhere;}
+  .visual-stats{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .visual-stats div{min-width:0;overflow-wrap:anywhere;}
+
+  .you-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .bonus-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .pillar-row{grid-template-columns:clamp(56px, 8vw, 90px) minmax(0,1fr);}
+  .pillar-row p,
+  .pillar-row li,
+  .bonus-card p,
+  .you-card p,
+  details p{overflow-wrap:anywhere;}
+
+  .offer{
+    margin-left:clamp(8px, 2.2vw, 24px);
+    margin-right:clamp(8px, 2.2vw, 24px);
+    padding:clamp(42px, 6vw, 64px) clamp(16px, 4vw, 28px);
+  }
+  .offer-card{width:100%;padding:clamp(22px, 3vw, 30px) clamp(16px, 2.5vw, 26px);}
+  .offer-card .pricing{flex-wrap:wrap;}
+  .timer-box{max-width:100%;flex-wrap:wrap;justify-content:center;text-align:center;}
+  .offer-includes li{min-width:0;}
+  .offer-includes li span{min-width:0;}
+
+  details{overflow:hidden;}
+  summary{min-height:44px;}
+
+  footer{
+    padding-left:max(var(--page-pad), env(safe-area-inset-left));
+    padding-right:max(var(--page-pad), env(safe-area-inset-right));
+    padding-bottom:max(30px, calc(30px + env(safe-area-inset-bottom)));
+  }
+
+  @media (max-width:860px){
+    .hero-grid,
+    .you-grid{grid-template-columns:1fr;}
+    .bonus-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .pillar-row{grid-template-columns:56px minmax(0,1fr);}
+    .pillar-icon{width:48px;height:48px;border-radius:14px;}
+    .hero-visual{order:-1;}
+    .hero-grid{gap:clamp(32px, 7vw, 48px);}
+  }
+
+  @media (max-width:600px){
+    #cartbar{font-size:.72rem;padding-top:9px;padding-bottom:9px;}
+    header.hero{padding-top:clamp(42px, 12vw, 58px);padding-bottom:clamp(38px, 10vw, 50px);}
+    h1.display{font-size:clamp(2rem, 10.5vw, 2.7rem);line-height:1.08;}
+    .hero-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+    .pillar-chip{justify-content:center;padding-left:8px;padding-right:8px;font-size:.8rem;}
+    .price-tag{align-items:center;}
+    .price-tag .new{font-size:clamp(1.7rem, 8vw, 2.1rem);}
+    .btn-buy{font-size:.95rem;padding:15px 16px;}
+    .hero-note{font-size:.78rem;}
+    .visual-card .sub-sm{font-size:.8rem;}
+    .visual-stats div{font-size:.66rem;padding:10px 4px;}
+    .visual-stats div span{font-size:1.05rem;}
+    .pillar-row{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:24px 0;}
+    .pillar-icon{width:40px;height:40px;border-radius:12px;}
+    .pillar-icon svg{width:20px;height:20px;}
+    .offer h2{font-size:clamp(1.65rem, 8vw, 2.15rem);}
+    .timer-box{gap:8px;padding:10px 14px;}
+    .timer-box .clock{font-size:1.35rem;}
+    .offer-card .pricing .new{font-size:clamp(2rem, 11vw, 2.4rem);}
+    .secure-row{flex-wrap:wrap;}
+    details{padding:12px 14px;}
+    summary{font-size:.9rem;line-height:1.4;}
+  }
+
+  @media (max-width:480px){
+    .wrap{padding-left:16px;padding-right:16px;}
+    section{padding-top:clamp(44px, 13vw, 58px);padding-bottom:clamp(44px, 13vw, 58px);}
+    .bonus-grid{grid-template-columns:1fr;gap:14px;}
+    .hero-visual{padding:18px;border-radius:20px;}
+    .visual-card{padding:20px 14px;border-radius:16px;}
+    .visual-mantra{font-size:.94rem;padding:14px 12px;}
+    .hero-pillars{gap:7px;}
+    .pillar-chip{font-size:.75rem;}
+    .offer{border-radius:22px;}
+    footer{padding-top:34px;}
+  }
+
+  @media (max-width:360px){
+    #cartbar{font-size:.67rem;}
+    h1.display{font-size:clamp(1.85rem, 10.5vw, 2.25rem);}
+    .badge-crown{font-size:.7rem;padding-right:10px;}
+    .hero-pillars{grid-template-columns:1fr;}
+    .pillar-chip{justify-content:flex-start;}
+    .visual-stats{gap:5px;}
+    .visual-stats div{font-size:.6rem;}
+    .visual-stats div span{font-size:.98rem;}
+    .offer-card .pricing{gap:5px;}
+  }
+
+  @media (orientation:landscape) and (max-height:560px){
+    header.hero{padding-top:38px;padding-bottom:38px;}
+    section{padding-top:48px;padding-bottom:48px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="cartbar">
+  ✿ Sua vaga com preço especial está reservada <span class="timer" id="cartbar-timer">15:00</span>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge-crown">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 8L7 12L12 4L17 12L21 8L19 18H5L3 8Z" fill="#c85f8c"/></svg>
+        Para mães reais que escolhem não desistir
+      </span>
+      <h1 class="display">Você não precisa de mais força.<br>Precisa de um <em>sistema que te apoia</em>.</h1>
+      <p class="lede">O Método Mãe que Vence organiza seu tempo, acalma sua mente e reorganiza seu dinheiro — em passos pequenos, possíveis de manter mesmo nos dias mais cheios.</p>
+
+      <div class="hero-pillars">
+        <div class="pillar-chip"><span class="dot" style="background:var(--pink-deep)"></span>Tempo</div>
+        <div class="pillar-chip"><span class="dot" style="background:var(--lilac-deep)"></span>Mente</div>
+        <div class="pillar-chip"><span class="dot" style="background:var(--gold)"></span>Dinheiro</div>
+      </div>
+
+      <div class="hero-cta">
+        <div class="price-tag">
+          <span class="old">R$ 29,90</span>
+          <span class="new">R$ 19,90</span>
+          <span class="cycle">pagamento único</span>
+        </div>
+        <a class="btn-buy" href="https://pay.kiwify.com.br/bz2rmCk" target="_blank" rel="noopener">
+          Quero o meu Método Mãe que Vence
+        </a>
+        <div class="hero-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V6L12 2Z" stroke="#6e5a72" stroke-width="1.6"/></svg>
+          Acesso imediato após a confirmação do pagamento
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-card">
+        <div class="crown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 8L7 12L12 4L17 12L21 8L19 18H5L3 8Z" fill="#c85f8c"/></svg>
+        </div>
+        <div class="title-sm">Método Mãe que Vence</div>
+        <div class="sub-sm">Guia completo para mães solo · Tempo, Mente e Dinheiro em equilíbrio</div>
+        <div class="visual-mantra">"Eu me escolho, eu me cuido, eu venço."</div>
+        <div class="visual-stats">
+          <div>4<span>capítulos</span></div>
+          <div>4<span>bônus prontos</span></div>
+          <div>1<span>passo por dia</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="foryou">
+  <div class="wrap">
+    <span class="eyebrow">Você se reconhece aqui?</span>
+    <h2>A rotina de mãe solo não vem com manual. Este e-book é o manual que faltava.</h2>
+    <p class="quote-strip">"Sou tão desorganizada. Meus amigos conseguem ter rotina, mas eu não." — é o que tantas mães pensam, sem saber que o problema nunca foi elas.</p>
+
+    <div class="you-grid">
+      <div class="you-card">
+        <div class="num">Tempo</div>
+        <p>Você acorda antes de todo mundo e dorme depois — e ainda sente que não fez o suficiente. Falta um sistema de rotina que funcione no seu mundo real, não no mundo ideal.</p>
+      </div>
+      <div class="you-card">
+        <div class="num">Mente</div>
+        <p>A culpa aparece o tempo todo: por trabalhar, por se irritar, por querer um tempo só seu. Você carrega decisões sozinha, o dia inteiro, sem ter com quem dividir.</p>
+      </div>
+      <div class="you-card">
+        <div class="num">Dinheiro</div>
+        <p>O mês termina e o dinheiro já foi embora. Falta um jeito simples de organizar as contas — sem planilha complicada e sem se cobrar por metas impossíveis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="pillars-head">
+      <span class="eyebrow">O que você aprende dentro</span>
+      <h2>Um caminho leve para recuperar o controle da vida, um pequeno passo por dia</h2>
+      <p>O e-book é dividido nos três pilares que sustentam a rotina de uma mãe solo — e mostra como eles trabalham juntos no Sistema de Vitória.</p>
+    </div>
+
+    <div class="pillar-list">
+      <div class="pillar-row">
+        <div class="pillar-icon" style="background:linear-gradient(135deg,var(--pink),var(--pink-deep));">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.8"/><path d="M12 7V12L15 14" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h3>Pilar do Tempo</h3>
+          <p>A Rotina Mínima Viável e o método 3×3 de prioridades — uma forma de organizar o dia que não exige perfeição, só consistência.</p>
+          <ul>
+            <li>Rotina Mínima Viável para os dias mais cheios</li>
+            <li>Sistema 3×3 de tarefas obrigatórias e flexíveis</li>
+            <li>Micro-hábitos que cabem em qualquer agenda</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-row">
+        <div class="pillar-icon" style="background:linear-gradient(135deg,var(--lilac),var(--lilac-deep));">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.8C4 6.6 6.4 4.5 9 4.5C10.5 4.5 11.6 5.3 12 6.2C12.4 5.3 13.5 4.5 15 4.5C17.6 4.5 20 6.6 20 9.8C20 15.5 12 21 12 21Z" stroke="#fff" stroke-width="1.8"/></svg>
+        </div>
+        <div>
+          <h3>Pilar da Mente</h3>
+          <p>Ferramentas rápidas para lidar com a exaustão emocional e a culpa materna, substituindo autocobrança por consciência.</p>
+          <ul>
+            <li>Check-in emocional diário de 2 minutos</li>
+            <li>Técnicas de autocuidado de 1 a 10 minutos</li>
+            <li>Sinais de alerta para evitar o burnout</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-row">
+        <div class="pillar-icon" style="background:linear-gradient(135deg,var(--gold),var(--pink-deep));">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3V21M17 7.5C17 6 15.5 5 12 5C8.5 5 7 6.3 7 8C7 11 17 10 17 14C17 16 15 17 12 17C9 17 7 16 7 14.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h3>Pilar do Dinheiro</h3>
+          <p>Um jeito simples de organizar as finanças, sem planilhas complicadas — do diagnóstico rápido à primeira reserva de segurança.</p>
+          <ul>
+            <li>Diagnóstico financeiro em 3 passos</li>
+            <li>Regra 60/25/15 adaptada para a realidade real</li>
+            <li>7 ideias possíveis de renda extra</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bonus">
+  <div class="wrap">
+    <span class="eyebrow" style="display:block;text-align:center;">Inclusos no e-book</span>
+    <h2>4 bônus prontos para preencher e usar hoje mesmo</h2>
+    <p class="bonus-sub">Nada de teoria solta — cada bônus é um material pronto para imprimir ou preencher no celular.</p>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="tag">Bônus 1</div>
+        <h4>Planner semanal</h4>
+        <p>Modelo completo, dia a dia, pronto para imprimir.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="tag">Bônus 2</div>
+        <h4>Guia financeiro</h4>
+        <p>Diagnóstico, reserva e metas em um só lugar.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="tag">Bônus 3</div>
+        <h4>Checklist de emergência</h4>
+        <p>Para os dias em que tudo parece impossível.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="tag">Bônus 4</div>
+        <h4>Checklist semanal</h4>
+        <p>Revisão simples de tempo, mente e dinheiro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oferta">
+  <div class="offer">
+    <span class="eyebrow">Oferta desta página</span>
+    <h2>Método Mãe que Vence — completo, por R$ 19,90</h2>
+    <p class="sub">E-book digital + os 4 bônus prontos. Pagamento único, acesso imediato.</p>
+
+    <div class="timer-box">
+      <span class="lbl">Preço reservado por</span>
+      <span class="clock" id="main-timer">15:00</span>
+    </div>
+
+    <div class="offer-card">
+      <div class="name">Método Mãe que Vence</div>
+      <div class="desc">Guia completo para mães solo: tempo, mente e dinheiro em equilíbrio.</div>
+      <div class="pricing">
+        <span class="old">R$ 29,90</span>
+        <span class="new">R$ 19,90</span>
+      </div>
+      <div class="installment">ou em até 12x no cartão</div>
+      <ul class="offer-includes">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#c85f8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> E-book completo (4 capítulos)</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#c85f8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Planner semanal para imprimir</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#c85f8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Guia financeiro completo</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#c85f8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Checklists de emergência e semanal</li>
+      </ul>
+      <a class="btn-buy" href="https://pay.kiwify.com.br/bz2rmCk" target="_blank" rel="noopener">Garantir por R$ 19,90</a>
+      <div class="secure-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#6e5a72" stroke-width="1.6"/><path d="M8 10V7A4 4 0 0116 7V10" stroke="#6e5a72" stroke-width="1.6"/></svg>
+        Ambiente de pagamento seguro
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-list">
+      <details open>
+        <summary>Como recebo o e-book?</summary>
+        <p>Assim que o pagamento é confirmado, você recebe o acesso ao material diretamente pelo e-mail cadastrado na compra.</p>
+      </details>
+      <details>
+        <summary>Preciso ter experiência com organização ou finanças?</summary>
+        <p>Não. O método foi criado justamente para quem nunca conseguiu seguir sistemas complicados — os passos são pequenos e possíveis de manter.</p>
+      </details>
+      <details>
+        <summary>O e-book substitui acompanhamento profissional?</summary>
+        <p>Não. É um guia de organização e conscientização sobre rotina, tempo e dinheiro. Não é um substituto de acompanhamento psicológico ou financeiro profissional.</p>
+      </details>
+      <details>
+        <summary>Por quanto tempo tenho acesso?</summary>
+        <p>O acesso ao material é vitalício — você pode reler e usar os bônus quantas vezes precisar.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fname">Floresce Mãe</div>
+  <div>Método Mãe que Vence · Conteúdo digital de organização e conscientização para mães solo.</div>
+  <div class="flinks">Este material não substitui acompanhamento médico, psicológico ou financeiro profissional.</div>
+</footer>
+
+<script>
+(function(){
+  var DURATION = 15*60; // 15 minutes
+  var key = 'mmv_cart_deadline';
+  var deadline = localStorage.getItem(key);
+  var now = Date.now();
+  if(!deadline || parseInt(deadline,10) < now){
+    deadline = now + DURATION*1000;
+    localStorage.setItem(key, deadline);
+  } else {
+    deadline = parseInt(deadline,10);
+  }
+
+  var elBar = document.getElementById('cartbar-timer');
+  var elMain = document.getElementById('main-timer');
+
+  function tick(){
+    var diff = Math.max(0, Math.floor((deadline - Date.now())/1000));
+    var m = Math.floor(diff/60);
+    var s = diff%60;
+    var text = (m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    if(elBar) elBar.textContent = text;
+    if(elMain) elMain.textContent = text;
+    if(diff <= 0){
+      clearInterval(interval);
+      if(elBar) elBar.textContent = '00:00';
+      if(elMain) elMain.textContent = '00:00';
+    }
+  }
+  tick();
+  var interval = setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
